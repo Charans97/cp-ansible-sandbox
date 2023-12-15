@@ -1,3 +1,6 @@
+##ansible playbook to check if the disk space in the hosts are below 75% and if there is a minimum free memory of 4G
+used check_disk.yml for the above
+
 # cp-ansible-sandbox
 
 docker-compose environment to run cp-ansible in a docker environment with systemd and ssh for the inventory nodes

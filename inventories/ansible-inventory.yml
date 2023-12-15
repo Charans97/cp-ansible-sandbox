@@ -18,6 +18,11 @@ kafka_broker:
     kafka2:
     kafka3:
 
-control_center:
+#control_center:
+ # hosts:
+  #  control-center:
+
+Check_Disk:
   hosts:
-    control-center:
+    kafka1
+  
