@@ -9,6 +9,7 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.errors.SerializationException;
+import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,12 +22,12 @@ public class AvroProducerFromFile {
     public static void main(String[] args) {
         String bootstrapServers = "localhost:9092";
         String schemaRegistryUrl = "http://localhost:8081";
-        String topic = "topicnew";
+        String topic = "avro-topic";
         String recordsFile = "src/main/resources/avro/records.json";
 
         Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
         props.put("schema.registry.url", schemaRegistryUrl);
 
@@ -46,7 +47,9 @@ public class AvroProducerFromFile {
             System.out.println("process1");
 
             for (String jsonRecord : jsonRecords) {
-                MyRecord avroRecord = JsonUtils.convertJsonToMyRecord(jsonRecord);
+//                MyRecord avroRecord = JsonUtils.convertJsonToMyRecord(jsonRecord);
+                MyRecord avroRecord = new MyRecord();
+                avroRecord.setF1("value2");
                 String key = "key"; // You can use a unique key for each record if needed
                 ProducerRecord<String, GenericRecord> record = new ProducerRecord<>(topic, key, avroRecordToGenericRecord(avroRecord));
                 producer.send(record);
