@@ -1,0 +1,8 @@
+[
+  {"f1": "value1", "f2": 1, "f3": true},
+  {"f1": "value2", "f2": 2, "f3": false},
+  {"f1": "value3", "f2": 3, "f3": true},
+  {"f1": "value4", "f2": 4, "f3": false},
+  {"f1": "value5", "f2": 5, "f3": true},
+  {"f1": "value6", "f2": 6, "f3": false}
+]

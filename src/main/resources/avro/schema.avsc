@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "MyRecord",
+  "fields": [
+    {"name": "f1", "type": "string"},
+    {"name": "f2", "type": "int"},
+    {"name": "f3", "type": "boolean"}
+    // Add more fields as needed
+  ]
+}
+
