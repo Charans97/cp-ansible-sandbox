@@ -22,32 +22,20 @@ spec:
   image:
     application: confluentinc/cp-server:7.2.0
     init: confluentinc/confluent-init-container:2.6.0
-  dataVolumeCapacity: 10Gi
-#  listeners:
- #   internal:
-  #    authentication:
-   #     type: plain
-    #    jaasConfig:
-     #     secretRef: credential
-      #tls:
-       # enabled: false
- #   external:
-  #    authentication:
-   #     type: plain
-    #    jaasConfig:
-     #     secretRef: credential
-      #tls:
-       # enabled: false
-  services:
-    kafkaRest:
-      #authentication:
-       # type: basic
-        #basic:
-         # secretRef: credential
-          #roles:
-           # - Administrators
+  dataVolumeCapacity: 100Gi
   passwordEncoder:
     secretRef: password-encoder-secret
+  dependencies:
+    zookeeper:
+      endpoint: zookeeper.destination.svc.cluster.local:2181
+  services:
+    kafkaRest:
+      authentication:
+        type: basic
+        basic:
+          secretRef: credential
+          roles:
+            - Administrators
 ---
 apiVersion: platform.confluent.io/v1beta1
 kind: KafkaRestClass
@@ -58,8 +46,8 @@ spec:
   kafkaClusterRef:
     name: kafka
   kafkaRest:
-    endpoint: http://kafka.destination.svc.cluster.local:8090
-   # authentication:
-    #  type: basic
-     # basic:
-      #  secretRef: rest-credential
+ #   endpoint: http://kafka:8090
+    authentication:
+      type: basic
+      basic:
+        secretRef: rest-credential
