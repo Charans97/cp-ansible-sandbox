@@ -42,14 +42,14 @@ public class Consumer {
         p.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         p.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 
-        p.setProperty(ConsumerConfig.GROUP_ID_CONFIG , "ConsumerGroup2");
+        p.setProperty(ConsumerConfig.GROUP_ID_CONFIG , "ConsumerGroup3");
         p.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         System.out.println(p.toString());
         p.setProperty(ConsumerConfig.INTERCEPTOR_CLASSES_CONFIG, ConsumerTimestampsInterceptor.class.getName());
         final KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(p);
 
 
-        consumer.subscribe(Arrays.asList("stream_op3"));
+        consumer.subscribe(Arrays.asList("output_topic"));
 
         while (true) {
             ConsumerRecords<String, String> records =  consumer.poll(Duration.ofMillis(500));

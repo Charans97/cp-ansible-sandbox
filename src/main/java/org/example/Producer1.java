@@ -37,9 +37,9 @@ public class Producer1 {
 
         System.out.println("started");
 
-        for (int i=41;i<=50;i++){
+        for (int i=1;i<=10;i++){
            // int partitionNumber = i % 3;
-            ProducerRecord<String, String> record = new ProducerRecord<>("stream_ip" , Integer.toString(i) , Integer.toString(i));
+            ProducerRecord<String, String> record = new ProducerRecord<>("input_topic" , Integer.toString(i) , Integer.toString(i));
             producer.send(record);
             //Thread.sleep(1000 * 15);
         }
