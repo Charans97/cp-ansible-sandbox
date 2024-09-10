@@ -9,7 +9,7 @@ docker-compose environment to run cp-ansible in a docker environment with system
 
 ```sh
 # Clone using SSH
-git clone git@github.com:Platformatory/cp-ansible-sandbox.git
+git clone git@github.com:Charans97/cp-ansible-sandbox.git
 ```
 
 ```sh
