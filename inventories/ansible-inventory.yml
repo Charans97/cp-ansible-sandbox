@@ -17,12 +17,23 @@ kafka_broker:
     kafka1:
     kafka2:
     kafka3:
-
-#control_center:
- # hosts:
-  #  control-center:
-
-Check_Disk:
+kafka_connect:
   hosts:
-    kafka1
+    connect:
+
+schema_registry:
+  hosts:
+    schema-registry:
+
+ksqldb:
+  hosts:
+    ksqldb:
+
+control_center:
+  hosts:
+    control-center:
+
+#Check_Disk:
+ # hosts:
+  #  kafka1
   
