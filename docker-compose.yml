@@ -155,45 +155,45 @@ services:
     environment:
       - DEBIAN_FRONTEND=non-interactive
 
- # schema-registry:
- #  build:
- #     context: ./  # This is the directory where your Dockerfile-inventory-node resides
- #     dockerfile: Dockerfile-inventory-node  # This is the name of your Dockerfile
- #   hostname: schema-registry
- #   privileged: true
- #   cap_add:
- #     - ALL
- #   ports:
- #     - "2230:22"
- #   volumes:
- #     - ./share:/usr/share/cp-ansible-sandbox
- #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
- #   tmpfs:
- #     - /run/lock
- #     - /run
- #     - /tmp
- #   environment:
- #     - DEBIAN_FRONTEND=non-interactive
+  schema-registry:
+    build:
+      context: ./  # This is the directory where your Dockerfile-inventory-node resides
+      dockerfile: Dockerfile-inventory-node  # This is the name of your Dockerfile
+    hostname: schema_registry
+    privileged: true
+    cap_add:
+      - ALL
+    ports:
+      - "2230:22"
+    volumes:
+      - ./share:/usr/share/cp-ansible-sandbox
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+      - /run/lock
+      - /run
+      - /tmp
+    environment:
+      - DEBIAN_FRONTEND=non-interactive
 
- #   ksqldb:
- #   build:
- #     context: ./  # This is the directory where your Dockerfile-inventory-node resides
- #     dockerfile: Dockerfile-inventory-node  # This is the name of your Dockerfile
- #   hostname: ksqldb
- #   privileged: true
- #   cap_add:
- #     - ALL
- #   ports:
- #     - "2231:22"
- #   volumes:
- #     - ./share:/usr/share/cp-ansible-sandbox
- #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
- #   tmpfs:
- #     - /run/lock
- #     - /run
- #     - /tmp
- #   environment:
- #     - DEBIAN_FRONTEND=non-interactive
+  ksqldb:
+    build:
+      context: ./  # This is the directory where your Dockerfile-inventory-node resides
+      dockerfile: Dockerfile-inventory-node  # This is the name of your Dockerfile
+    hostname: ksql
+    privileged: true
+    cap_add:
+      - ALL
+    ports:
+      - "2231:22"
+    volumes:
+      - ./share:/usr/share/cp-ansible-sandbox
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+      - /run/lock
+      - /run
+      - /tmp
+    environment:
+      - DEBIAN_FRONTEND=non-interactive
  
   control-center:
     build:
