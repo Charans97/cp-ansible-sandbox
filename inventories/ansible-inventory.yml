@@ -17,17 +17,18 @@ kafka_broker:
     kafka1:
     kafka2:
     kafka3:
+
 kafka_connect:
   hosts:
     connect:
 
-schema_registry:
-  hosts:
-    schema-registry:
+#schema_registry:
+#  hosts:
+#    schema-registry:
 
-ksqldb:
-  hosts:
-    ksqldb:
+#ksqldb:
+#  hosts:
+#    ksqldb:
 
 control_center:
   hosts:
